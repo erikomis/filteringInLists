@@ -7,16 +7,22 @@ defmodule FilteringInLists do
     Enum.flat_map(list_strings, fn  string ->
       case Integer.parse(string) do  #parse the string to integer
         {number, ""} -> #if the string is a number
-          if rem(number, 2) == 0 do #if the number is even
-            []
-          else
-            [number] #if the number is odd
-          end
+          parseFilter(rem(number, 2)) #if the number is even
         _ -> #if the string is not a number
           []
       end
     end)
     |> Enum.count() #count the number of odd numbers
   end
+
+
+  defp parseFilter(0) do
+    []
+  end
+  
+  defp parseFilter(number) do
+    [number]
+  end
+
 
 end
