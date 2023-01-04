@@ -3,8 +3,12 @@ defmodule FilteringInListsTest do
 
 
   describe "call/1" do
-    test "returns the list impares numbers" do
+    test "returns the list impares numbers  expect 0" do
       assert FilteringInLists.call(["teste", "teste2", "teste3"]) == 0
+    end
+
+    test "returns the list impares numbers expect 3" do
+      assert FilteringInLists.call(["1", "2", "3", "4", "5", "teste", "teste2", "teste3"]) == 3
     end
   end
 
